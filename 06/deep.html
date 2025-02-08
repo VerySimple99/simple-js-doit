@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트 버블링 예제 - 동물들이 말을 걸어요!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f8ff;
+    }
+    .animal {
+      display: inline-block;
+      margin: 20px;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      background-color: #fff;
+      cursor: pointer;
+    }
+    .animal img {
+      width: 100px;
+      height: 100px;
+    }
+    .bubble {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #000;
+      border-radius: 10px;
+      background-color: #fff;
+      display: none;
+    }
+    .forest {
+      padding: 20px;
+      border: 3px solid #4CAF50;
+      border-radius: 15px;
+      background-color: #e8f5e9;
+    }
+  </style>
+</head>
+<body>
+  <h1>동물들이 말을 걸어요! 🐾</h1>
+  <p>동물을 클릭하면 말풍선이 나타나요. 숲을 클릭해도 이벤트가 발생해요!</p>
+
+  <div class="forest" id="forest">
+    <div class="animal" id="cat">
+      <img src="https://cdn-icons-png.flaticon.com/512/616/616430.png" alt="Cat">
+      <div class="bubble" id="cat-bubble">야옹! 나는 고양이야!</div>
+    </div>
+    <div class="animal" id="dog">
+      <img src="https://cdn-icons-png.flaticon.com/512/616/616429.png" alt="Dog">
+      <div class="bubble" id="dog-bubble">우끼끼! 나는 원숭이야!</div>
+    </div>
+    <div class="animal" id="rabbit">
+      <img src="https://cdn-icons-png.flaticon.com/512/616/616451.png" alt="Rabbit">
+      <div class="bubble" id="rabbit-bubble">부엉부엉! 나는 부엉이야!</div>
+    </div>
+  </div>
+
+  <script>
+    // 동물 클릭 이벤트 리스너
+    document.querySelectorAll('.animal').forEach(animal => {
+      animal.addEventListener('click', (e) => {
+        const bubble = animal.querySelector('.bubble');
+        bubble.style.display = 'block';
+        console.log(`${animal.id}가 클릭되었어요!`);
+      });
+    });
+
+    // 숲 클릭 이벤트 리스너 (이벤트 버블링 확인용)
+    document.getElementById('forest').addEventListener('click', (e) => {
+      alert('숲이 클릭되었어요! 이벤트가 버블링되었습니다.');
+    });
+  </script>
+</body>
+</html>

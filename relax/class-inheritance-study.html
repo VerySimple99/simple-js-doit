@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    class inheritance study
+    <script>
+      // 기본이 되는 동물 클래스
+      class Animal {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+          this.energy = 100;
+        }
+
+        eat() {
+          console.log(`${this.name}: 맛있게 먹는 중... 😋`);
+          this.energy += 10;
+        }
+
+        sleep() {
+          console.log(`${this.name}: 쿨쿨... 💤`);
+          this.energy = 100;
+        }
+      }
+
+      // 팬더 클래스는 Animal을 상속받아요!
+      class Panda extends Animal {
+        constructor(name, age, bambooFavorite) {
+          // super로 부모 클래스의 생성자를 호출해요
+          super(name, age);
+          this.bambooFavorite = bambooFavorite;
+        }
+
+        // 팬더만의 특별한 메서드
+        eatBamboo() {
+          console.log(`${this.name}: 대나무 와구와구 🎋`);
+          this.energy += 20;
+        }
+
+        rollAround() {
+          console.log(`${this.name}: 데굴데굴 구르기~ 🐼`);
+          this.energy -= 15;
+        }
+      }
+
+      // 펭귄 클래스도 Animal을 상속받아요!
+      class Penguin extends Animal {
+        constructor(name, age, swimSpeed) {
+          super(name, age);
+          this.swimSpeed = swimSpeed;
+        }
+
+        // 펭귄만의 특별한 메서드
+        swim() {
+          console.log(
+            `${this.name}: 첨벙첨벙 수영중! 🏊‍♂️ (속도: ${this.swimSpeed}km/h)`
+          );
+          this.energy -= 20;
+        }
+
+        waddle() {
+          console.log(`${this.name}: 아장아장 걷기 🐧`);
+          this.energy -= 5;
+        }
+      }
+
+      // 동물들 만들기
+      const mingming = new Panda("밍밍", 3, "청죽");
+      const popo = new Penguin("포포", 2, 25);
+
+      // 동물원에서의 하루
+      console.log("=== 즐거운 동물원의 하루 ===");
+
+      // 공통 기능 사용하기 (상속받은 메서드)
+      mingming.eat(); // 맛있게 먹는 중... 😋
+      mingming.sleep(); // 쿨쿨... 💤
+
+      // 각자의 특별한 기능 사용하기
+      mingming.eatBamboo(); // 대나무 와구와구 🎋
+      mingming.rollAround(); // 데굴데굴 구르기~ 🐼
+
+      popo.swim(); // 첨벙첨벙 수영중! 🏊‍♂️
+      popo.waddle(); // 아장아장 걷기 🐧
+    </script>
+  </body>
+</html>

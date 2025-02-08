@@ -8,3 +8,5 @@ function calcSum(n) {
 
 let num = parseInt(prompt("몇까지 더할까요?"));
 console.log(`1부터 ${num}까지 더하면 ${calcSum(num)}입니다.`);
+//document.write("1부터 "+num+"까지 더하면 "+calcSum(num)+"입니다.");
+document.write(`1부터 ${num}까지 더하면 ${calcSum(num)}입니다^^.`);

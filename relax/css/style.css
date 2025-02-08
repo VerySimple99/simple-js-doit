@@ -1,0 +1,36 @@
+body {
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  background-color: #ffebcd;
+  padding: 50px;
+}
+
+#noti-box {
+  font-size: 2rem;
+  color: #fff;
+  background-color: #ff69b4;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  min-width: 300px;
+  min-height: 80px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+button {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  border: none;
+  background-color: #ff1493;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #ff69b4;
+  transform: scale(1.1);
+}

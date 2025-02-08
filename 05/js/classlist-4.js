@@ -1,5 +1,5 @@
 const title = document.querySelector("#title");
-const userName = document.querySelector("#desc p");
+const userName = document.querySelector("#desc .user");
 
 title.onclick = () => {
   title.classList.toggle("clicked");  

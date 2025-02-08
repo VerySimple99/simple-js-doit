@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    class study
+    <script>
+      // 귀여운 고양이 클래스를 만들어봅시다!
+      class Cat {
+        // 생성자: 고양이가 태어날 때 필요한 정보들
+        constructor(name, color, age) {
+          this.name = name;
+          this.color = color;
+          this.age = age;
+          this.energy = 100;
+        }
+
+        // 고양이의 행동들을 메서드로 정의합니다
+        meow() {
+          console.log(`${this.name}: 야옹~ 😺`);
+          this.energy -= 5;
+        }
+
+        eat() {
+          console.log(`${this.name}: 냠냠 생선 맛있다 😋`);
+          this.energy += 20;
+          if (this.energy > 100) this.energy = 100;
+        }
+
+        sleep() {
+          console.log(`${this.name}: 쿨쿨... 💤`);
+          this.energy = 100;
+        }
+
+        showStatus() {
+          console.log(`
+            이름: ${this.name}
+            색깔: ${this.color}
+            나이: ${this.age}살
+            에너지: ${this.energy}%
+        `);
+        }
+      }
+
+      // 고양이 인스턴스 만들기
+      const nabi = new Cat("나비", "하얀색", 2);
+      const nero = new Cat("네로", "검은색", 3);
+
+      // 고양이들의 하루
+      console.log("=== 귀여운 고양이들의 하루 ===");
+      nabi.meow(); // 나비: 야옹~ 😺
+      nabi.eat(); // 나비: 냠냠 생선 맛있다 😋
+      nero.meow(); // 네로: 야옹~ 😺
+      nero.sleep(); // 네로: 쿨쿨... 💤
+
+      // 고양이들의 상태 확인
+      nabi.showStatus();
+      nero.showStatus();
+    </script>
+  </body>
+</html>
