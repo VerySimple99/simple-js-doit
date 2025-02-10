@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      비동기 처리는 시간이 걸리는 작업을 기다리는 동안,
+      다른 일을 하면서 효율적으로 처리할 수 있도록 도와주는 기술이에요!
+      ## **Promise: 비동기 작업을 위한 약속**
+
+      **Promise(약속)** 는 "미래에 결과를 받을게!" 라는 개념이에요.
+
+      async/await: 더 쉬운 비동기 코드 작성법
+      async/await 는 Promise 를 더 쉽게 사용할 수 있도록 도와주는 문법이에요.
+
+      async 키워드를 함수 앞에 붙이면 자동으로 Promise를 반환하는 함수가 됨.
+      await 키워드는 해당 비동기 작업이 끝날 때까지 기다림.
+      */
+      const boilWaterAsync = async () => {
+        console.log("물을 끓이는 중... 🔥");
+        await new Promise((resolve) => setTimeout(resolve, 3000)); // 3초 기다리기
+        console.log("물이 다 끓었어요! 💨");
+      };
+
+      const makeRamen = async () => {
+        await boilWaterAsync(); // 물이 끓을 때까지 기다림
+        console.log("라면을 넣고 기다린다. 🍜");
+      };
+
+      makeRamen();
+      console.log("다른 재료를 준비한다. 🥬🍖");
+
+      /*
+        물을 끓이는 중... 🔥
+        다른 재료를 준비한다. 🥬🍖
+        (3초 후) 물이 다 끓었어요! 💨
+        라면을 넣고 기다린다. 🍜
+
+        👉 await 덕분에 코드가 더 직관적이고 이해하기 쉬워짐!
+        👉 순차적으로 실행되지만, 코드가 동기 방식처럼 깔끔함!
+      */
+    </script>
+  </body>
+</html>
