@@ -11,7 +11,7 @@
       비동기 처리는 시간이 걸리는 작업을 기다리는 동안,
       다른 일을 하면서 효율적으로 처리할 수 있도록 도와주는 기술이에요!
       ## **Promise: 비동기 작업을 위한 약속**
-
+      Promise는 비동기 작업(예: 네트워크 요청, 타이머, 파일 읽기 등)이 완료될 때까지 기다리는 객체
       **Promise(약속)** 는 "미래에 결과를 받을게!" 라는 개념이에요.
 
       async/await: 더 쉬운 비동기 코드 작성법
@@ -22,7 +22,15 @@
       */
       const boilWaterAsync = async () => {
         console.log("물을 끓이는 중... 🔥");
+        //Promise는 비동기 작업(예: 네트워크 요청, 타이머, 파일 읽기 등)이 완료될 때까지 기다리는 객체
+        //resolve는 Promise가 성공적으로 끝났을 때 호출하는 함수
+        //resolve()가 실행되면 Promise가 완료(fulfilled) 상태가 된다.
+        //await는 이 Promise가 완료될 때까지 기다린다.
+        //resolve()를 호출하지 않으면 Promise는 끝나지 않고 계속 대기 상태(Pending)로 남아 있습니다.
         await new Promise((resolve) => setTimeout(resolve, 3000)); // 3초 기다리기
+        // resolve 함수는 setTimeout 내부에서 호출됩니다.
+        // 즉, setTimeout이 3초 후에 실행되면서 resolve()를 호출(호출되기만 하면 됨)하여 Promise를 완료(fulfilled) 상태로 만듭니다.
+
         console.log("물이 다 끓었어요! 💨");
       };
 
@@ -42,6 +50,14 @@
 
         👉 await 덕분에 코드가 더 직관적이고 이해하기 쉬워짐!
         👉 순차적으로 실행되지만, 코드가 동기 방식처럼 깔끔함!
+
+        🚀 정리!
+        개념	            설명	                                    코드 스타일
+        Promise	        비동기 작업이 끝나면 결과를 반환하는 객체	  .then().catch()
+        async/await	    Promise를 더 직관적으로 사용 가능	          await 키워드로 비동기 처리
+        ✅ Promise 는 .then() 체이닝을 사용하지만, 코드가 길어질 수 있음
+        ✅ async/await 은 동기 코드처럼 읽혀서 가독성이 좋음!
+        ✅ React에서는 API 요청, state 업데이트, useEffect에서 비동기 처리할 때 필수!
       */
     </script>
   </body>
