@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      앞선 callback 함수 방식은 복잡한 업무에서는 콜백함수가 중첩되는 콜백지옥이 될 수 있음
+      ECAM 2015에서 Promise 가 나옴
+      Promise 프로미스라는 이름에서 알 수 있듯이 
+      처리에 성공했을 때 실행할 콜백 함수 resolve()와 
+      처리에 실패했을 때 실행할 콜백 함수 reject() 를 
+      미리 약속하는 것을 말함  
+      let likePizza = true;
+      const pizza = new Promise(resolve,reject) => {
+        if(likePizza)
+          reslove("피자 주문");
+        else
+          reject("피자 주문하지 않습니다");
+      }
+
+    */
+
+      // 랜덤으로 성공/실패를 반환하는 함수
+      function cooking() {
+        return Math.random() > 0.3; // 70% 성공률
+      }
+
+      // 짜장면 만들기 프로미스
+      function makeGiftJjajangmyeon() {
+        return new Promise((resolve, reject) => {
+          console.log("🧑🍳: 여친을 위해 짜장면 만들기 시작! 후다닥~");
+
+          setTimeout(() => {
+            if (cooking()) {
+              resolve("🍜: 짜잔 짜장면 완성! 집으로 초대할까요?");
+            } else {
+              reject("🔥: 앗!  짜잖아~ 왕짜증!");
+            }
+          }, 1500); // 1.5초 후 결과
+        });
+      }
+
+      // 프로미스 실행
+      makeGiftJjajangmyeon()
+        .then((successMessage) => {
+          console.log(`✅ 성공: ${successMessage}`);
+        })
+        .catch((errorMessage) => {
+          console.log(`❌ 실패: ${errorMessage}`);
+        })
+        .finally(() => console.log("항상 실행 ㅎ 고량주 준비"));
+
+      /* 실행 결과 예시 (성공 시)
+🧑🍳: 짜장면 만들기 시작! 후다닥~
+✅ 성공: 🍜: 짜장면 완성! 어디서 배달시킬까요? */
+
+      /* 실행 결과 예시 (실패 시)
+🧑🍳: 짜장면 만들기 시작! 후다닥~
+❌ 실패: 🔥: 앗! 냄비에 불났다구요!
+📱: 다시 주문하시겠습니까? */
+    </script>
+  </body>
+</html>

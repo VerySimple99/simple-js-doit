@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서 검색</title>
+</head>
+<body>
+    <h1>📚 도서 검색</h1>
+    <input type="text" id="search" placeholder="책 제목을 입력하세요">
+    <button onclick="searchBooks()">검색</button>
+    <ul id="results"></ul>
+
+    <script>
+        async function searchBooks() {
+            const query = document.getElementById("search").value;
+            const apiKey = "AIzaSyCZkkFmUjJZT0CSfF9kScjcV5kW12j2iLw";  // 여기에 API 키 입력
+            const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                displayBooks(data.items);
+            } catch (error) {
+                console.error("책 정보를 불러오는 데 실패했습니다!", error);
+            }
+        }
+
+        function displayBooks(books) {
+            const results = document.getElementById("results");
+            results.innerHTML = "";  // 기존 검색 결과 삭제
+            books.forEach(book => {
+                const li = document.createElement("li");
+                li.textContent = `${book.volumeInfo.title} - ${book.volumeInfo.authors?.join(", ") || "저자 정보 없음"}`;
+                results.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
