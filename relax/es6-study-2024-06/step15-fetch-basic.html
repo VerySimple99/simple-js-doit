@@ -10,7 +10,11 @@
     <ul id="book-list"></ul> <!-- 책 목록을 표시할 <ul> 태그 -->
 
     <script>
-        // fetch() 함수를 사용하여 'books.json' 파일의 데이터를 가져옴
+        // 
+        /*
+        fetch 함수는 네트워크 요청을 보내고, 그 결과를 Promise로 반환합니다. 이 Promise는 네트워크 요청이 완료되면 응답(Response 객체)으로 이행(Fulfilled)되거나, 네트워크 오류가 발생하면 거부(Rejected)됩니다.
+        fetch() 함수를 사용하여 'books.json' 파일의 데이터를 가져옴
+        */
         fetch("books.json")
             .then(response => response.json()) // 응답 데이터를 JSON 형식으로 변환
             .then(data => {
