@@ -31,7 +31,7 @@
       */
       //resolve()를 호출하지 않으면 Promise는 끝나지 않고 계속 대기 상태(Pending)로 남아 있습니다.
       // resolve 함수는 setTimeout 내부에서 호출됩니다.
-      // 즉, setTimeout이 3초 후에 실행되면서 resolve()를 호출(호출되기만 하면 됨)하여 Promise를 완료(fulfilled) 상태로 만듭니다.
+      // 즉, setTimeout이 3초 후에 실행되면서 resolve()를 호출되면면 Promise를 완료(fulfilled) 상태로 만듭니다.
       const boilWater = () => {
         return new Promise((resolve, reject) => {
           console.log("물을 끓이는 중... 🔥");
@@ -41,7 +41,7 @@
         });
       };
 
-      boilWater().then((result) => console.log(result));
+      boilWater().then((result) => console.log(`${result} 후속 작업.. 라면을 넣는다`));
       console.log("다른 재료를 준비한다. 🥬🍖");
 
       /*
